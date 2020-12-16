@@ -11,6 +11,7 @@ import at.softeng.four.model.link.Road;
 import at.softeng.four.model.link.TrafficLink;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 import javax.annotation.PreDestroy;
 import java.util.List;
