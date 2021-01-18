@@ -1,6 +1,7 @@
 package at.softeng.four.rest;
 
 import at.softeng.four.model.link.TrafficLink;
+import at.softeng.four.model.link.TrafficLinkData;
 import feign.Param;
 import feign.RequestLine;
 
@@ -8,8 +9,8 @@ import java.util.List;
 
 public interface TrafficDataAccess {
     @RequestLine("GET /api/data/link")
-    List<TrafficLink> getTrafficLinks();
+    List<TrafficLinkData> getTrafficLinks();
 
     @RequestLine("GET /api/data/link/{id}")
-    TrafficLink getTrafficLink(@Param("id") long trafficLinkId);
+    TrafficLinkData getTrafficLink(@Param("id") long trafficLinkId);
 }

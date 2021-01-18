@@ -12,6 +12,7 @@ public class Intersection implements TrafficLink {
     private final long id;
     private double loadFactor = 0;
 
+    @JsonIgnore
     private final List<TrafficLink> neighbours = new ArrayList<>();
     private final Map<Long, TrafficParticipant> trafficParticipants = new ConcurrentHashMap<>();
     private final Map<Long, TrafficDevice> trafficControlDevices = new ConcurrentHashMap<>();

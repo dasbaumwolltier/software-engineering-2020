@@ -2,10 +2,12 @@ package at.softeng.four.model.device;
 
 import at.softeng.four.model.Coordinates;
 import at.softeng.four.model.link.TrafficLink;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class DefaultTrafficDevice implements TrafficDevice {
     protected final long id;
     protected final Coordinates geographicPosition;
+    @JsonIgnore
     protected final TrafficLink parent;
 
     private TrafficDeviceStatus status;

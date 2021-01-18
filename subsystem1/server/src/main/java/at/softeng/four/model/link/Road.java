@@ -2,6 +2,7 @@ package at.softeng.four.model.link;
 
 import at.softeng.four.model.TrafficParticipant;
 import at.softeng.four.model.device.TrafficDevice;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Road implements TrafficLink {
     private final long id;
 
+    @JsonIgnore
     private final List<TrafficLink> neighbours = new ArrayList<>();
     private final Map<Long, TrafficDevice> trafficControlDevices = new ConcurrentHashMap<>();
     private final Map<Long, TrafficParticipant> trafficParticipants = new ConcurrentHashMap<>();
@@ -19,7 +21,7 @@ public class Road implements TrafficLink {
     public Road(long id) {
         this.id = id;
     }
-    
+
     @Override
     public long getId() {
         return id;
@@ -56,6 +58,11 @@ public class Road implements TrafficLink {
 
     public void addTrafficDevice(TrafficDevice tcd) {
         trafficControlDevices.put(tcd.getId(), tcd);
+    }
+
+    @Override
+    public Map<Long, TrafficParticipant> getSimulatedTrafficParticipants() {
+        return this.simulatedTrafficParticipants;
     }
 
     @Override
